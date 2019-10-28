@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$USER_HOME$/Desktop/易果项目/Yiguo" />
+    <file type="web" url="file://$PROJECT_DIR$/maven-yiguo/web-yiguo" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-ssm" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-yiguo" />
+    <file type="web" url="file://$PROJECT_DIR$/springmvc-01" />
+    <file type="web" url="file://$PROJECT_DIR$/springmvc-02" />
+    <file type="web" url="file://$PROJECT_DIR$/springssm-01" />
+    <file type="web" url="file://$PROJECT_DIR$/springssm-02" />
+    <file type="web" url="file://$PROJECT_DIR$/springssm-father/ssm-web" />
+    <file type="web" url="file://$PROJECT_DIR$/video" />
+    <file type="web" url="file://$PROJECT_DIR$/web-yiguo" />
+    <type id="Spring" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/fengmi-maven/pom.xml" />
+        <option value="$PROJECT_DIR$/maven-mybatis2/pom.xml" />
+        <option value="$PROJECT_DIR$/yiguo/pom.xml" />
+        <option value="$PROJECT_DIR$/maven-yiguo/pom.xml" />
+        <option value="$PROJECT_DIR$/webyiguo/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-01/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-02/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-03/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-04/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-05/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-yiguo/pom.xml" />
+        <option value="$PROJECT_DIR$/springmvc-01/pom.xml" />
+        <option value="$PROJECT_DIR$/springmvc-02/pom.xml" />
+        <option value="$PROJECT_DIR$/springssm-01/pom.xml" />
+        <option value="$PROJECT_DIR$/springssm-02/pom.xml" />
+        <option value="$PROJECT_DIR$/springssm-father/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-ssm/pom.xml" />
+        <option value="$PROJECT_DIR$/video/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/fengmi-maven/pom.xml" />
+        <option value="$PROJECT_DIR$/maven-yiguo/pom.xml" />
+        <option value="$PROJECT_DIR$/yiguo/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

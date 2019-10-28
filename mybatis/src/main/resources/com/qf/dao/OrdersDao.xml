@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.OrdersDao">
+   <!-- <resultMap type="com.pojo.Orders" id="ordermap">
+        <id property="oid" column="oid"></id>
+        <result property="number" column="number"></result>
+        &lt;!&ndash; 配置User &ndash;&gt;
+        <association property="user" javaType="com.pojo.User">
+            <id property="id" column="id"></id>
+            <result property="username" column="username" />
+        </association>
+    </resultMap>-->
+
+<!--    <select id="findAll" resultMap="ordermap">
+         SELECT id ,username,oid,number
+         FROM user,orders
+         WHERE user.id=orders.userid
+    </select>-->
+
+<resultMap id="ordersMap" type="Orders">
+    <association property="user" column="userid" javaType="user"
+                 select="com.qf.dao.UserDao.findByid2">
+
+    </association>
+</resultMap>
+    <select id="findAll2" resultMap="ordersMap">
+select * from orders
+    </select>
+</mapper>

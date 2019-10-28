@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.UserDao">
+    <!--配置查询所有-->
+    <select id="findAll" resultType="com.pojo.User">
+        select * from user
+    </select>
+  <cache></cache>
+    <select id="findByid2" resultType="com.pojo.User" useCache="true">
+        select * from user where id=#{id}
+    </select>
+    <insert id="add">
+        insert into user(username) values(#{username})
+    </insert>
+    <update id="updateById">
+        update user set username=#{username} where id=#{id}
+    </update>
+    <delete id="deleteById">
+        delete from user where id=#{id}
+    </delete>
+    <select id="findFazzy" resultType="com.pojo.User">
+        select *from user where username=#{username}
+    </select>
+    <select id="findFazzy2" resultType="com.pojo.User">
+        select *from user where username like #{username}
+    </select>
+    <select id="getCount" resultType="java.lang.Integer">
+       select count(1) from user
+    </select>
+    <select id="PageSelect" resultType="com.pojo.User">
+        select *from user limit #{frist},#{second }
+
+    </select>
+    <select id="findQueryVo" resultType="com.pojo.User">
+   select *from user where id=#{user.id}
+</select>
+    <select id="findBYIds" resultType="com.pojo.User">
+        select *from user
+        <where>
+            id in
+            <foreach collection="list" open="(" close=")" separator="," item="id">
+                #{id}
+            </foreach>
+        </where>
+    </select>
+    <select id="findBYIdsQueryVo" resultType="com.pojo.User">
+        select *from user
+        <where>
+            id in
+            <foreach collection="list" open="(" close=")" separator="," item="id">
+                #{id}
+            </foreach>
+        </where>
+    </select>
+    <resultMap id="userMap" type="com.pojo.User">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <collection property="ordersList" ofType="com.pojo.Orders">
+            <id property="oid" column="oid"></id>
+            <result property="number" column="number"></result>
+
+        </collection>
+
+    </resultMap>
+
+    <select id="findUserOrder" resultMap="userMap">
+        SELECT id,username,oid,number FROM USER LEFT JOIN  orders ON user.id = orders.userid
+    </select>
+</mapper>

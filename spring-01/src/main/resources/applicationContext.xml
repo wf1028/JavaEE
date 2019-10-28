@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 使用默认构造函数创建。-->
+    <bean id="userDao" class="com.qf.dao.impl.UserDaoImpl"
+    scope="singleton" init-method="init" destroy-method="destory"
+    ></bean>
+
+    <!-- 使用普通工厂中的方法创建对象（使用某个类中的方法创建对象，并存入spring容器）-->
+  <!--  <bean  name="userDaoFactory" class="com.qf.factory.UserDaoFactory"></bean>
+    <bean name="userDao" factory-bean="userDaoFactory" factory-method="getUserDao"></bean>-->
+
+    <!-- 使用工厂中的静态方法创建对象（使用某个类中的静态方法创建对象，并存入spring容器)-->
+  <!--  <bean id="userDao" class="com.qf.factory.UserDaoStaticFactory" factory-method="getUserDao" scope="singleton"
+    ></bean>-->
+    <bean name="car" class="com.qf.entity.Car">
+        <property name="cname" value="保时捷"></property>
+    </bean>
+   <!-- <bean name="user" class="com.qf.entity.User">
+        <property name="id" value="1028"></property>
+        <property name="name" value="纳米"></property>
+        <property name="car" ref="car"></property>
+    </bean>-->
+ <bean name="user" class="com.qf.entity.User">
+     <constructor-arg name="id" index="0" type="java.lang.Integer" value="2345"></constructor-arg>
+     <constructor-arg name="name" index="1" type="java.lang.String" value="里斯"></constructor-arg>
+     <constructor-arg name="car" index="2" type="com.qf.entity.Car" ref="car"></constructor-arg>
+ </bean>
+</beans>

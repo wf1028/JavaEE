@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> <!-- bean definitions here -->
+
+    <context:property-placeholder location="classpath:jdbcConfig.properties"/>
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+    <property name="driverClassName" value="${jdbc.driver}"></property>
+    <property name="url" value="${jdbc.url}"></property>
+    <property name="username" value="${jdbc.username}"></property>
+    <property name="password" value="${jdbc.password}"></property>
+</bean>
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+<property name="dataSource" ref="dataSource"></property>
+</bean>
+<bean id="userDao" class="com.qf.dao.impl.UserDaoImpl">
+<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+</bean>
+    <bean id="userService" class="com.qf.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+    <bean id="userController" class="com.qf.controller.UserController">
+        <property name="userService" ref="userService"></property>
+    </bean>
+
+    <bean name="myAdvice" class="com.qf.advice"></bean>
+    <!-- 自动扫描配置代理对象-->
+<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+<!--    <aop:config>
+        <aop:pointcut id="pc" expression="execution(public void com.qf.dao.impl.UserDaoImpl.*())"/>
+        <aop:aspect ref="myAdvice">
+            &lt;!&ndash;前置通知 &ndash;&gt;
+            <aop:before method="before" pointcut-ref="pc"></aop:before>
+            &lt;!&ndash;后置通知 无论是否出现异常都会通知&ndash;&gt;
+            <aop:after method="after" pointcut-ref="pc"></aop:after>
+            &lt;!&ndash;环绕通知 &ndash;&gt;
+            <aop:around method="around" pointcut-ref="pc"></aop:around>
+            &lt;!&ndash;异常拦截通知 &ndash;&gt;
+            <aop:after-throwing method="afterthrowing" pointcut-ref="pc"></aop:after-throwing>
+            &lt;!&ndash;后置通知 &ndash;&gt;
+            <aop:after-returning method="afterreturning" pointcut-ref="pc"></aop:after-returning>
+
+
+        </aop:aspect>
+
+    </aop:config>-->
+</beans>

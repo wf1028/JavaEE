@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/spring-ssm" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-yiguo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springmvc-01" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springssm-01" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springssm-02" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springssm-father/ssm-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springssm-father/ssm-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springssm-father/ssm-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/video" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Yiguo:war">
+    <output-path>$USER_HOME$/Desktop/易果项目/Yiguo/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Yiguo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Yiguo-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Yiguo:war exploded" />
+    </root>
+  </artifact>
+</component>

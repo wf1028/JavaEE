@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dao" />
+        <module name="spring-yiguo" />
+        <module name="web-yiguo" />
+        <module name="mybatis" />
+        <module name="ssm-service" />
+        <module name="springssm-01" />
+        <module name="video" />
+        <module name="spring-03" />
+        <module name="springmvc-01" />
+        <module name="maven-mybatis2" />
+        <module name="ssm-dao" />
+        <module name="spring-05" />
+        <module name="spring-04" />
+        <module name="springssm-02" />
+        <module name="spring-02" />
+        <module name="spring-01" />
+        <module name="spring-ssm" />
+        <module name="ssmweb" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dao" target="1.8" />
+      <module name="fengmi-maven" target="1.8" />
+      <module name="maven-mybatis2" target="1.8" />
+      <module name="maven-yiguo" target="1.5" />
+      <module name="mybatis" target="1.8" />
+      <module name="serviceko-yiguo" target="1.5" />
+      <module name="spring-01" target="1.8" />
+      <module name="spring-02" target="1.8" />
+      <module name="spring-03" target="1.8" />
+      <module name="spring-04" target="1.8" />
+      <module name="spring-05" target="1.8" />
+      <module name="spring-ssm" target="1.8" />
+      <module name="spring-yiguo" target="6" />
+      <module name="springmvc-01" target="1.8" />
+      <module name="springmvc-02" target="1.7" />
+      <module name="springssm-01" target="1.8" />
+      <module name="springssm-02" target="1.8" />
+      <module name="springssm-father" target="1.8" />
+      <module name="ssm-dao" target="1.8" />
+      <module name="ssm-service" target="1.8" />
+      <module name="ssmweb" target="1.8" />
+      <module name="video" target="1.8" />
+      <module name="web-yiguo" target="1.8" />
+      <module name="Yiguo" target="6" />
+      <module name="yiguo" target="1.5" />
+      <module name="yiguo-dao" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

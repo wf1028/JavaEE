@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiguo.dao.OrdersMapper" >
+  <resultMap id="OrdersMap" type="com.yiguo.entity.Orders" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="oid" property="oid" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="DOUBLE" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="aid" property="aid" jdbcType="INTEGER" />
+    <!-- 配置Goods/Address -->
+    <association property="goods" javaType="com.yiguo.entity.Goods">
+      <id property="id" column="id"></id>
+      <result property="name" column="name" />
+      <result property="pubdate" column="pubdate" />
+      <result property="picture" column="picture" />
+      <result property="price" column="price" />
+      <result property="place" column="place" />
+      <result property="intro" column="intro" />
+      <result property="typeid" column="typeid" />
+    </association>
+    <association property="address" javaType="com.yiguo.entity.Address">
+      <id property="id" column="id"></id>
+      <result property="detail" column="detail" />
+      <result property="name" column="name" />
+      <result property="phone" column="phone" />
+      <result property="uid" column="uid" />
+      <result property="level" column="level" />
+    </association>
+    <association property="orderDetail" javaType="com.yiguo.entity.OrderDetail">
+      <id property="id" column="id"></id>
+      <result property="num" column="num"></result>
+      <result property="oid" column="oid"></result>
+      <result property="pid" column="pid"></result>
+      <result property="money" column="money"></result>
+      <result property="leaveMessage" column="leave_Message"></result>
+      <result property="aid" column="aid"></result>
+    </association>
+  </resultMap>
+  <select id="findAll" resultMap="OrdersMap">
+select o.id,goods.name,user.username,o.oid,o.money,o.status,o.time,address.detail,address.name
+ from orders o,address,user,order_detail od,goods
+ where o.id=od.id
+  </select>
+  <select id="findByStatus" resultMap="OrdersMap">
+select o.id,goods.name,user.username,o.oid,o.money,o.status,o.time,address.name,address.detail
+from orders o,address,user,order_detail od,goods
+where o.uid=user.id
+and o.id=od.id
+and address.id=o.aid
+and o.status=#{status}
+  </select>
+<insert id="AddByOrders" useGeneratedKeys="true" keyProperty="id">
+  insert into orders(id,uid,oid,money,status,aid)
+  values(#{id},#{uid},#{oid},#{money},#{status},#{aid})
+</insert>
+  <update id="changeOrders">
+    update orders
+
+     <set>
+       <if test="uid!=null">
+         uid=#{uid}
+       </if>
+       <if test="money!=null">
+         money=#{money}
+       </if>
+       <if test="aid!=null">
+         aid=#{aid}
+       </if>
+     </set>
+     where id=#{id}
+  </update>
+</mapper>

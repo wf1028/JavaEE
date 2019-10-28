@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+
+    <!-- 扫描包下的注解 -->
+    <context:component-scan base-package="com.qf"></context:component-scan>
+
+
+    <!--<bean name="userController" class="com.qf.controllertroller.UserController">
+            <property name="userService" ref="userServiceImpl"></property>
+    </bean>-->
+
+
+    <!--<bean name="userService" class="com.qf.service.UserServiceImpl">
+            <property name="userDao" ref="userDao"></property>
+    </bean>-->
+
+    <!--<bean name="userDao" class="com.qf.dao.UserDaoImpl>
+    </bean>-->
+  <!--  set注入-->
+    <bean name="car" class="com.qf.entity.Car">
+        <constructor-arg name="name" value="保时捷" type="java.lang.String"></constructor-arg>
+    </bean>
+    <bean name="coll" class="com.qf.entity.CollectionDemo">
+   <property name="integer">
+       <array>
+           <value>12</value>
+           <value>23</value>
+           <value>45</value>
+           <value>23</value>
+       </array>
+   </property>
+        <property name="list">
+            <list>
+                <value>测试1</value>
+                <ref bean="car"></ref>
+            </list>
+        </property>
+<property name="map">
+    <map>
+        <entry key="1234" value="向日葵"></entry>
+        <entry key="1232" value="瓜子"></entry>
+        <entry key="1" value-ref="car"></entry>
+    </map>
+</property>
+        <property name="properties">
+            <props>
+                <prop key="username">root</prop>
+                <prop key="password">123123</prop>
+            </props>
+        </property>
+        <property name="set">
+            <set>
+                <value>李四</value>
+                <value>刘能</value>
+                <ref bean="car"></ref>
+                <value>赵本山</value>
+            </set>
+        </property>
+
+    </bean>
+    <bean name="coll1" class="com.qf.entity.CollectionDemo">
+        <property name="list">
+            <list>
+                <value>999</value>
+                <value>注解</value>
+            </list>
+        </property>
+    </bean>
+</beans>
